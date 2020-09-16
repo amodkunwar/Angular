@@ -1,0 +1,23 @@
+Directives : 
+
+There are 3 types of directives :
+
+1. Component Directives
+	- Every angular application must have atleast 1 component.
+	- Have it's own templates. eg : templateUrl etc
+	- Events attached. eg : botton etc
+	
+2. Structural Directives
+
+	- Structural directives always start with (*) symbol. Eg : *ngFor, *ngIf, *ngSwitch
+	- These directives alter the structure of  directives.
+	- ngFor, ngIf and ngSwitch.
+	
+3. Attribute Directives
+
+	- There are mainly 2 attribute directives
+	  ngClass and ngStyle. Eg : [ngStyle]='{color:"red"}' -> Change the color
+	
+4. Generate Custom Directives
+
+	- ng g d <directive-name>

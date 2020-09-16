@@ -1,0 +1,32 @@
+Component :
+
+1. Component is a smaller functionality which can be reused multiple times in the application.
+2. Samller feature inside a bigger functionality
+	For example
+		Authentication - Module
+			Login Component
+			Register Component
+			Forgot password Component
+			authenticate
+3. Allow in easy maintainece and development
+4. Tree Hirerchy
+	is made of component
+		Parent
+		Child1 child2 Child3
+5. Plug and play the components wherever required.
+6. Tree Hirerchy starts with AppComponent
+7. AppComponent is the single most component.
+	- is provided by default
+	-  in the index.html we can see the selector name i.e. <app-root>
+8. Each component will have 3 important thing
+	- selector
+	- templateUrl or template
+	- styleUrl or style
+9. It is good practice to use templateUrl not template because code will be easy to maintaine.
+10. We can have components inside components. (Sub component)
+11. How to generate the custom component : "ng g c <componentName>".
+12. Once we generate the component, automatically it will updated and imported into AppModule.ts
+13. To calla sub component we will use selector name and call the element. 
+14. we can include component from other module into appModule
+	
+	

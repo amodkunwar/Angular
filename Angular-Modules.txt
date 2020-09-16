@@ -1,0 +1,40 @@
+Angular Module :
+
+1. Authentication Module
+2. User Module
+3. Task Module
+4. Settings Module etc
+
+================================================
+
+1. Module in angular are logical functionality
+
+2. For example users Modules
+	- Register
+	- forgot
+	- signup
+	- services
+
+3. Modules can have components, services, directives, pipes etc
+	- all are related to a particular functionality
+
+4. Plug ang play features.
+
+5. It allows to be modular, easy to maintain, easy to debug, it reduces the app footprint
+	- If you are on a page which does not need a mopldule - simply don't load it.
+	
+6. by default every angular application app has 1 module atleast i.e. app.module.ts
+
+7. we need to import required modules from core packages.
+	- browserModule
+	- ngModule
+	
+8. Every module needs to be defined by @NgModule
+
+9. We can declare components we need.
+
+10. we can import other modules inside a module
+
+11. we can decide which is the default component to load i.e. bootstrap: [AppComponent]
+
+12. ng generate module todo
