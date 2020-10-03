@@ -1,0 +1,25 @@
+1. ngIf
+2. ngIf with else statement
+3. ngIf with then and else statement
+
+
+*ngIf : 
+
+1. ngIf is a built-structural directive that can add or remove elements.
+2. Add * symbol in ngIf in template.
+3. Conditionally includes a template based on an expression.
+4. Resolves to true or else result of any given expression.
+5. Add or remove an element dynamically.
+6. Example code : <div *ngIf="condtion"></div>
+ 
+
+*ngIf with else statement
+
+1. use along with *ngIf statement
+2. for using else statment - we need to use <ng-template> and pass template reference variable along with it.
+	- for eg. <div *ngIf="showValue;else showMessage">Show Value</div>
+	- <ng-template #showMessage>Showing else msg</ng-template>
+
+*ngIf with then and else statement
+
+1. template reference variable.

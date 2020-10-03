@@ -1,0 +1,70 @@
+ngClass
+
+1. the ngClass directives lets us set a class name for the element.
+2. We can pass dynamic values via variables.
+	- ngClass with String.
+	- ngClass with array.
+	- ngClass with Object.
+	- ngClass with component method.
+3. Use string quotes.
+4. If we will use more than one class then it will be aaray of classes.
+5. Example :
+		- <div [ngClass]="`one`">Using ngClass with string example</div>
+		- <div [ngClass]="`one`:true,'two':false">with multiple class names.</div>
+		
+Example for static class :
+
+app.componenet.css : 
+
+.one {
+    color: blue;
+    background-color: gray;
+}
+
+app.component.html :
+
+<div [ngClass]="'one'">
+    Learning ngClass
+</div>
+----------------------------------------------------
+Example for dynamic class :
+
+app.componenet.css : 
+
+.one {
+    color: blue;
+    background-color: gray;
+}
+
+app.component.html :
+
+<div [ngClass]="className">
+    Learning ngClass
+</div>
+
+-- declare this variable name "className" in app.component.ts
+
+---------------------------------------------------------
+
+Example for more than one class : 
+
+.one {
+    color: blue;
+    background-color: gray;
+}
+
+.two {
+    background-color: lightyellow;
+}
+
+<div [ngClass]="[className, className2]">
+    Learning ngClass
+</div>
+
+------------------------------------------------------------
+
+Example for expression i.e. true or false : 
+
+<div [ngClass]="{'one':false, 'two':true}">
+    Learning ngClass of expressions
+</div>

@@ -1,0 +1,15 @@
+ngStyle :
+
+1. the ngStyle directives lets you set a given DOM elements style properties.
+2. We can pass dynamic values via variables.
+3. for Eg. : <div [ngStyle]="`background-color`:value"></div>
+
+
+<h1>ngStyle</h1>
+<div [ngStyle]="{'color':color, 'background-color':background}">
+    Learning Angular is fun.
+</div>
+
+<a [ngStyle]="{'color':color, 'background-color':background}" href="#">
+    Learning Angular is fun.
+</a>

@@ -1,0 +1,39 @@
+ngFor
+
+1. Similar to the for statement in any other language.
+2. It is the buil in structural directive - which modifies the DOM structure.
+3. Loop the elements to display the array data in the template.
+4. Syntax : <div *ngFor="let ele of collection></div>
+
+Provides local variable in the array.
+
+1. Index  - gets the current index of the current element in .
+2. First - returns true if the current element is the first element in iteration.
+3. Last - returns true if the current element is the last element in iteration.
+4. Even - returns true if the current element is the even element in iteration.
+
+
+Example : 
+
+
+<h3>*ngFor</h3>
+<table class="table">
+    <tr>
+        <th>User Id</th>
+        <th>User Name</th>
+        <th>Index</th>
+        <th>First</th>
+        <th>Last</th>
+        <th>Even</th>
+        <th>Odd</th>
+    </tr>
+    <tr *ngFor="let u of users; index as i; first as f; last as l; even as e; odd as o"> 
+        <td>{{u.userId}}</td>
+        <td>{{u.userName}}</td>
+        <td>{{ i }}</td>
+        <td>{{f}}</td>
+        <td>{{l}}</td>
+        <td>{{e}}</td>
+        <td>{{o}}</td>
+    </tr>
+</table> 

@@ -1,0 +1,21 @@
+ngSwitch
+
+1. It is built in directive and starts with * symbol.
+2. Very similar to switch statement to any other programming language.
+3. Allow elements to show and hidden based on condition expressions.
+4. Unlike if statement switch can take multiple value paramters for condition check.
+5. We can also define a default action for switch.
+
+There are mainly 3 important elements of ngSwitch
+	- ngSwitch
+	- ngSwitchCase
+	- ngSwitchDefault
+	
+Example : 
+	- <div [ngSwitch]="switch_expression">
+	 - <div *ngSwitchCase = "match_expression_1">...</div>
+	 - <div *ngSwitchCase = "match_expression_2">...</div>
+	 - <div *ngSwitchCase = "match_expression_3">...</div>
+	 - <div *ngSwitchCase = "match_expression_4">...</div>
+	 - <div *ngSwitchDefault>...</div>
+	 </div>   
