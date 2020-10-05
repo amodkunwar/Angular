@@ -1,0 +1,159 @@
+Databinding : 
+
+1. Means to bind the data from view(template) to controller (Component class) and vice versa.
+2. Data binding as the name suggest i.e. interacting with data.
+3. Defines how to data flows and how the data gets updated based on business logic.
+
+Types of data binding : 
+
+1. One way data binding : 
+	- Component to view 
+		* Interpolation
+		* Property binding
+		* style binding 
+		* attribute binding
+	- View to component
+		* Event binding
+2. Two way data binding :
+	- Data flows from view to component and back to component from the view.
+	
+Interpolation : 
+
+1. Is a technique that allows the user to bind the data from component to view (template).
+2. Data flow is only one wat that is component to view (template).
+3. Can be used for Integers, Strings, objects, arrays and much more.
+4. Syntax for defining interpolation is double curly braces.
+	- {{variable_name}}
+--------------------------------------------------------------------------------------------
+
+component.html	
+	
+<div>My name is : {{myName}}</div>
+<div>My age is : {{age}}</div>
+
+<div>{{customer}}</div> 
+<div>{{customer.cusName}}</div>
+<div>{{customer.cusId}}</div>
+<div>{{customer.status}}</div>
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>status</th>
+    </tr>
+    <tr>
+        <td>{{customer.cusId}}</td>
+        <td>{{customer.cusName}}</td>
+        <td>{{customer.status}}</td>
+    </tr>
+    
+</table>
+--------------------------------------------------------------------------------------------
+
+component.ts
+
+myName = 'Amod';
+  age = 26;
+
+  customer = {
+    cusName:'Amod Kunwar',
+    cusId:1,
+    status:'Active'
+  };
+
+
+
+============================================================================================================================
+
+Property Binding : 
+
+1. Is a technique that allows the user to bind properties of elements from component to view (template).
+2. Data flow is the only one-way ie. from component to view.
+3. Can be used for all properties like innerHTML, src etc.
+4. Suntax for defining interpolation is sqauare bracket. 
+	[property]="expression"
+	
+	colorVal = 'red';
+	
+	status = 'hi';
+	
+	placeholder = 'enter value';   
+	
+	<div [ngStyle]="{color:colorVal}">This is the example of property binding.</div>
+
+	<p [innerHtml]='status'></p>
+	<input [placeholder]='placeholder'>
+	
+============================================================================================================================
+
+Attribute Binding : 
+
+1. Is a technique that allows the user to bind properties of elements from component to view (template).
+2. Data flow is the only one-way ie. from component to view.
+3. Can be used for any existing properties ir custom attributes.
+4. Syntax : 
+
+	[attr.attribute_name]="'expression'"
+	
+	
+eg. 
+
+	<a [href]="hrefValue" [attr.newAttributeValue]="newAttributeValue">Google</a>
+
+	hrefValue = 'http://goggle.com';
+
+    newAttributeValue = "http://oracle.com";
+	
+============================================================================================================================
+
+Event-Binding
+
+1. Is a technique that allows the user to bind events of elements from view/template to component.
+2. The data flow is only from one way i.e. from view to component.
+3. Can be used for all available events.
+4. Syntax :
+	<button (event_name)="functionName()"></button>
+
+example : 
+
+<h4>Learning Event binding</h4>
+<button (click)="clickMe()">Click Me</button> 
+
+<p>
+    <input (focus)="consoleMessage()"/>
+</p>
+	
+clickMe() {
+  alert('Welcome to Amod tutorials');
+}
+
+consoleMessage() {
+  console.log("Learning event binding");
+}
+
+================================================================================================================================
+
+Two way data binding : -
+
+1. Is a technique that allows the user to bind events of elements from view/template to component and vice versa.
+2. The data flows from both ways i.e. from view to component and component to view.
+3. Two way data binding is a combination of property binding as well as event binding.
+4. We bind data uisng ngModel - square brackets of property binding with parentheses of event binding in a single notation.
+
+Also we called this as a banana in the box.
+
+Syntax : 
+	<input [(ngModel)]='data'/>
+-----
+<h3>Two way data binding : </h3>
+
+<input [(ngModel)]= 'firstName'/>
+<button class="btn btn-primary" (click)="isClick()" >Get Name</button>
+<div >{{firstName}}</div>
+-----
+isClick() {
+  this.getName = true
+  console.log(this.getName);
+  return this.getName;
+}
