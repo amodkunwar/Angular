@@ -1,0 +1,43 @@
+Routing in angular : 
+
+1. Routing strategy
+2. Base HREF
+3. Router Module
+4. Router outlet
+5. Configuring routes
+6. Router Link
+7. Parametterized routes
+8. Redirecting routes.
+9. wildcard Routes
+10. Query Params in Routes
+11. child routes
+12. Modules with specific routes
+13. lazy loading
+14. Route guards
+
+***************************************************************************
+
+1. Routing is a mechanism used by angular framework to manage the "paths" and  "routes" of out angular applications.
+2. Routing strateguy helps in navigation between various views in angular applications.
+3. Angular framework comes with "Router" Module which has everything we need to design, develop and implement routes and navigation links.
+4. Router is a singleton - which means there is only one instance of the router  angular application.
+5. Angular Router is the official Router module which is written and maintaeined by core angular team.
+6. The router Module is found in the package "@anguar/router".
+7. We need to setup router array - every time a request is made, the router will search in the list of array and find the most relevant match.
+8. Router has states - which helps us get important information about the current state and data related to routes.
+9. All batteries included for router.
+
+*****************************************************************************
+
+1. We can handle various types of routes in angular application.
+
+	- Routes for component
+	- Getting query params from routes
+	- Getting the URL segment
+	- Loading child routes for a module
+	- Lazy loading
+	- Handling wild card routes
+	- Handling default routes 
+	- Handling 404 routes
+
+2. All batteries included for router.

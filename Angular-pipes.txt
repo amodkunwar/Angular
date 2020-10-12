@@ -1,0 +1,123 @@
+Pipes : 
+
+1. Pipes are used to transform the data.
+2. Pipes will take data input and convert/transform into a desired format.
+3. Pipes are written using the pipe operator (|).
+4. We can apply pipes to any view/template and to any data inputs.
+
+Types of Pipes :
+
+1. Built in pipes :
+	- Lowercase
+	- Uppercase 
+	- Currency
+	- Date
+	- JSON
+	
+2. Parametrized Pipes : 
+	- We can pass one or more paramters to pipes.
+	
+3. Chaining Pipes :
+	- we can connect multiple pipes to a data input
+	
+4. Custom Pipes : 
+	- We can create our own custom pipes for various data formatting..
+
+=========================================================================================================
+Built in pipes:
+	
+<h3> Builtin Pipes</h3>
+
+<div>{{customer1.cusFirstName | lowercase}}, {{customer1.cusLastName | uppercase}}</div>
+<div>{{customer1.cusDOB | date:'MMM dd'}}</div>
+<div>{{customer1.cusSal | currency:'INR'}}</div>
+<div>{{customer1 | json}}</div>
+
+=========================================================================================================
+
+Parametrized Pipes : 
+
+1. We can pass one or more paramters to pipes.
+2. We can pass paramters using the colon symbol (:).
+	- Currency :
+		- currency symbol
+		- currency code
+		- currency digit variations
+
+<div>{{customer1.cusDOB | date}}</div>
+<div>{{customer1.cusDOB | date:'short'}}</div>
+<div>{{customer1.cusDOB | date: 'long'}}</div>
+<div>{{customer1.cusDOB | date: 'longDate'}}</div>
+<div>{{customer1.cusDOB | date: 'MMM dd yyyy'}}</div>
+
+=========================================================================================================
+
+Chaining pipes :
+
+1. Using multple pipes on a data input is called as chaining pipes.
+2. We can pass one or more pipes to a data input.
+
+	- {{ dob | date | uppercase}}
+	
+<h3>Chaining Pipes</h3>
+
+<div>{{customer1.cusDOB | date:'MMM' | uppercase}}</div>
+
+=========================================================================================================
+
+Custom Pipes :
+
+1. We can create custom pipes in our angular application.
+2. We can generate a new custom pipe using angular CLI.
+	- ng g pipe highlight
+3. Pipes need tobe added in module - thankfully angular cli does this when we auto generate.
+4. We need to import Pipe and PipeTransform from the @angular/core.
+5. Pipes are declared with the decorator @pipe and provide the selector name.
+
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'highlight'
+})
+export class HighlightPipe implements PipeTransform {
+
+  transform(value: string, city: string): string {
+    return 'city name is : ' + city;
+  }
+
+}
+
+<h3>Example of custom pipe</h3>
+
+<div>{{user1.cityName | highlight: user1.cityName}}</div>
+
+-----------------------------------------------------
+
+
+
+<!-- <div>{{user1.cityName | highlight: user1.cityName}}</div>  -->
+
+
+
+<ul>
+    <li *ngFor="let user of users1">
+        <div [innerHTML]="user.cityName | highlight: user.cityName"></div> 
+    </li>
+	
+	
+.ts 
+
+import { Pipe, PipeTransform } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+@Pipe({
+  name: 'highlight'
+})
+export class HighlightPipe implements PipeTransform {
+
+constructor(private sanitizer : DomSanitizer) {}
+
+  transform(value: string, city: string): any {
+    return this.sanitizer.bypassSecurityTrustHtml('<div style="background-color:#ffffcc">' + city + '</div>');
+  }
+
+}
