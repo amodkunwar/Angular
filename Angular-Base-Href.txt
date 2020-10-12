@@ -1,0 +1,8 @@
+Base Href : 
+
+1. Every angular application has MANDATORY base href.
+2. Angular application is a SPA (Single page application/Architecture) which means there will be only one HTML file
+3. The default base href is set to "/" the root folder.
+4. The base HREF is present in index.html files for all angular applications.
+5. We can configure it or change it :
+ - ng build --base-href="/demos/"
