@@ -1,0 +1,40 @@
+Routing - Strategy : 
+
+1. Before, we begin implementation our routes in applications, its important to plan, architect the routes.
+2. How, what and where are the questions to be asked in this stage.
+3. This is called "Routing Strategy".
+4. This is extremely important as it will affect the entire application flow and navigation.
+	- /products
+	- /product/10
+	- /product/10/details
+	- /product?search=param1
+5. Anulgar provides 2 types of Roting stategy we can use :
+	- PathLocationStrategy
+	- HashLocationStrategy
+6. We need to add this in Provider of our Modul.
+	- {provide: LocationStrategy, useClass: HashLocationStrategy}
+7. By default - Angular makes use of the PathLocationStrategy
+8. With HashLocationStrategy - we will see the # in the URL.
+
+PathLocationStrategy : 
+	- /products
+	- /product/10
+	- /product/10/details
+	- /product?search=param1
+	
+HashLocationStrategy : 
+	- #/products
+	- #/product/10
+	- #/product/10/details
+	- #/product?search=param1
+	
+ providers: [
+    {provide : LocationStrategy, useClass : HashLocationStrategy}
+  ],
+  
+ or
+ 
+  providers: [
+    {provide : LocationStrategy, useClass : PathLocationStrategy}
+  ],
+
