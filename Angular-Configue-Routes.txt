@@ -1,0 +1,40 @@
+Routing : 
+
+1. We can configure routes to redirect route for various paths.
+	- path
+	- Component
+	- redirectTo
+	- children
+
+
+<h1 class="bg-primary">Welcome to {{title}}</h1>
+<ul>
+    
+    <li><a href="/products">Products</a></li>
+        <li><a href="/product-view">Product View</a></li>
+            <li><a href="/product-edit">Product Edit</a></li>
+    
+</ul>
+<router-outlet></router-outlet>
+
+------------------------------------------------------------------------------
+
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { TasksComponent } from './tasks/tasks.component';
+import {ProductsComponent} from './products/products.component';
+import {ProductviewComponent} from './productview/productview.component';
+import {ProducteditComponent} from './productedit/productedit.component';
+
+  const routes: Routes = [
+    {path: 'learning', component: TasksComponent},
+    {path: 'products', component: ProductsComponent},
+    {path: 'product-view', component: ProductviewComponent},
+    {path: 'product-edit', component: ProducteditComponent}
+  ];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }

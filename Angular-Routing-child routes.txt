@@ -1,0 +1,90 @@
+Routing - Child Routes : 
+
+1. We can configure child routes to create more meaningful URL segment.
+2. The child routes array will follow syntax and array concept as similar to defining the routes array.
+3. Syntax for defining the child routes :
+
+	- { path: 'product',
+		 children: [ 
+			{ path: 'product-child', component: ProductViewComponent}
+		 ] }
+		 
+______________________________________________________________________________________________________________
+
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+@Component({
+  selector: 'app-product-id',
+  templateUrl: './product-id.component.html',
+  styleUrls: ['./product-id.component.css']
+})
+export class ProductIdComponent implements OnInit {
+
+  paramQuery1='';
+  // paramQuery2='';
+  // constructor(private activateRoutes : ActivatedRoute) {
+  //   activateRoutes.params.subscribe(data=>{
+  //     this.paramQuery1 = data.id1;
+  //     this.paramQuery2 = data.id2;
+  //   })
+
+  //  }
+
+  constructor(private activateRoutes : ActivatedRoute) {
+    activateRoutes.params.subscribe(data=>{
+      this.paramQuery1 = data.id;
+    })
+   }
+
+  ngOnInit(): void {
+  }
+
+}
+______________________________________________________________________________________________________________
+
+<!-- <p>First Param entered value : {{paramQuery1}}</p>
+<p>Second Param entered value : {{paramQuery2}}</p> -->
+
+<p>Entered value : {{paramQuery1}}</p>
+
+
+______________________________________________________________________________________________________________
+
+import { ProductIdComponent } from './product-id/product-id.component';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { TasksComponent } from './tasks/tasks.component';
+import {ProductsComponent} from './products/products.component';
+import {ProductviewComponent} from './productview/productview.component';
+import {ProducteditComponent} from './productedit/productedit.component';
+import {SearchComponent} from './search/search.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
+const routes: Routes = [
+  { path: '', redirectTo: 'products', pathMatch:'full' },
+
+  {path: 'products',
+  children : [
+    { path: 'view', component : ProductviewComponent },
+    { path: 'edit', component : ProducteditComponent },
+    { path: 'view/:id', component : ProductIdComponent },
+  ]
+},
+
+  { path: 'learning', component: TasksComponent },
+  { path: 'products', component: ProductsComponent },
+  // { path: 'product-view', component: ProductviewComponent },
+  // { path: 'product-edit', component: ProducteditComponent },
+  // { path: 'product-id/:id1/:id2', component: ProductIdComponent },
+  {path: 'search', component: SearchComponent},
+  {path: '**', component: PageNotFoundComponent}
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
+

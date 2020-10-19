@@ -1,0 +1,30 @@
+Routing - Routing Module :
+
+1. Routing module is a placeholder for configuring all the routes and navigate in one module.
+2. Best practice is to have all the routes configured in one placeholder.
+3. Easy to maintain and debug.
+4. We can generate the app routing module using the CLI
+	- ng g module app-routing --flat-module=app
+	
+Steps to be followed to use Routing Module : 
+
+1. We need to import modules from the Package : 
+	- import { Routes, RouterModule } from '@angular/router';
+2. We need to configure route path array in the file
+	- const routes: Routes = [];
+3. Then we need to define our module : 
+	- @NgModule({
+		imports: [RouterModule.forRoot(routes)],
+		exports: [RouterModule]
+		})
+4. We need to export the module : 
+	- export class AppRoutingModule { }
+5. Import the module in the AppModile file
+	- import { AppRoutingModule } from './app-routing.module';
+	
+imports: [
+    BrowserModule,
+    AppRoutingModule,
+    TodoModule,
+    FormsModule
+  ],

@@ -1,0 +1,18 @@
+Routing - Wildcard Routes : 
+
+1. wild card intercepts any invalid URLs in our application.
+2. When NO matching routes are found in the routes array, the router does not know where to go and hence results in console errors.
+3. Wild card routes are defined in the routes array using.
+	- {path: '**'}
+4. Usually a component name PageNotFound is mapped as best practice.
+
+const routes: Routes = [
+  { path: '', redirectTo: 'product-edit', pathMatch:'full' },
+  { path: 'learning', component: TasksComponent },
+  { path: 'products', component: ProductsComponent },
+  { path: 'product-view', component: ProductviewComponent },
+  { path: 'product-edit', component: ProducteditComponent },
+  { path: 'product-id/:id1/:id2', component: ProductIdComponent },
+  {path: 'search', component: SearchComponent},
+  {path: '**', component: PageNotFoundComponent}
+];

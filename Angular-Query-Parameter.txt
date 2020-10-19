@@ -1,0 +1,67 @@
+Routing - Query Parameters : 
+
+1. we can easily configure query paramters in the URL routes.
+	- Search?keyword=toys&country=usa
+2. Get HTTP method  calls.
+3. Visible to end users.
+4. Make sure no sensitive data use with query params.
+5. Sensitive data will be used with POST HTTP method.
+
+****************************************************************************************
+
+<p>Query Parameters Passed : </p>
+<p>Country : {{queryCountry}}</p>
+<p>Trending : {{queryTrending}}</p>
+
+****************************************************************************************
+
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+@Component({
+  selector: 'app-search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.css']
+})
+export class SearchComponent implements OnInit {
+
+  queryCountry = '';
+  queryTrending = '';
+
+  constructor(private activatedRoute: ActivatedRoute) { 
+    activatedRoute.queryParams.subscribe(data=>{
+      this.queryCountry = data.country;
+      this.queryTrending = data.trending;
+    })
+  }
+
+  ngOnInit(): void {
+  }
+
+}
+
+****************************************************************************************
+
+import { ProductIdComponent } from './product-id/product-id.component';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { TasksComponent } from './tasks/tasks.component';
+import {ProductsComponent} from './products/products.component';
+import {ProductviewComponent} from './productview/productview.component';
+import {ProducteditComponent} from './productedit/productedit.component';
+import {SearchComponent} from './search/search.component';
+
+const routes: Routes = [
+  { path: 'learning', component: TasksComponent },
+  { path: 'products', component: ProductsComponent },
+  { path: 'product-view', component: ProductviewComponent },
+  { path: 'product-edit', component: ProducteditComponent },
+  { path: 'product-id/:id1/:id2', component: ProductIdComponent },
+  {path: 'search', component: SearchComponent}
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }

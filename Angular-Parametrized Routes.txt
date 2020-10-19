@@ -1,0 +1,66 @@
+Routing - Parametrized Routesgular
+
+1. We can configure and send parameters to our routes.
+2. We need to configure the route and mention that the value is dynamic
+	- {path: 'product/:id', component: 'ComponentName'}
+3. for example : 
+	- product/10
+	- product/10/20
+4. We can read the values in the component class and process the parameters.
+
+
+-------------------------------------------------------------------------------------
+
+import { ProductIdComponent } from './product-id/product-id.component';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { TasksComponent } from './tasks/tasks.component';
+import {ProductsComponent} from './products/products.component';
+import {ProductviewComponent} from './productview/productview.component';
+import {ProducteditComponent} from './productedit/productedit.component';
+
+const routes: Routes = [
+  { path: 'learning', component: TasksComponent },
+  { path: 'products', component: ProductsComponent },
+  { path: 'product-view', component: ProductviewComponent },
+  { path: 'product-edit', component: ProducteditComponent },
+  { path: 'product-id/:id1/:id2', component: ProductIdComponent }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
+-----------------------------------------------------------------------------------------
+
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+@Component({
+  selector: 'app-product-id',
+  templateUrl: './product-id.component.html',
+  styleUrls: ['./product-id.component.css']
+})
+export class ProductIdComponent implements OnInit {
+
+  paramQuery1='';
+  paramQuery2='';
+  constructor(private activateRoutes : ActivatedRoute) {
+    activateRoutes.params.subscribe(data=>{
+      this.paramQuery1 = data.id1;
+      this.paramQuery2 = data.id2;
+    })
+
+   }
+
+  ngOnInit(): void {
+  }
+
+}
+
+-----------------------------------------------------------------------------------------
+
+<p>First Param entered value : {{paramQuery1}}</p>
+<p>Second Param entered value : {{paramQuery2}}</p>

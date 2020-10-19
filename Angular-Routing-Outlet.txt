@@ -1,0 +1,8 @@
+Router-Outlet : 
+
+1. Every angular application must have router outlet.
+2. We can have more than 1 router outlet in our applications
+	- We can specify named router outlets in our application.
+3. Router outlet let us define where the output should be displayed.
+4. Router outlet can be specified at App Module or in individual modules.
+

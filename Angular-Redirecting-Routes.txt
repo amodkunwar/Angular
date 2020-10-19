@@ -1,0 +1,18 @@
+Routing - Redirecting Routes :
+
+1. When we want to route to be redirected to another route - we will implement the redirectTo in our route array.
+2. The syntax to define the same is given below : 
+	- { path: '', redirectTo: 'home', pathMatch:'full' },
+3. The empty path indicates that it's the default route of the application.
+4. The empty path also requires us to mention that pathMatch should be full.
+
+
+	const routes: Routes = [
+  { path: '', redirectTo: 'product-edit', pathMatch:'full' },
+  { path: 'learning', component: TasksComponent },
+  { path: 'products', component: ProductsComponent },
+  { path: 'product-view', component: ProductviewComponent },
+  { path: 'product-edit', component: ProducteditComponent },
+  { path: 'product-id/:id1/:id2', component: ProductIdComponent },
+  {path: 'search', component: SearchComponent}
+	];
