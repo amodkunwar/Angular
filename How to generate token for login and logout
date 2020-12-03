@@ -1,0 +1,48 @@
+TokenInterceptorService.ts
+
+
+import { EmployeeService } from './employee.service';
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { Injectable, Injector } from '@angular/core';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class TokenInterceptorService implements HttpInterceptor {
+
+  constructor(private injector: Injector) { }
+
+  ngOnInit() {}
+
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    let employeeService = this.injector.get(EmployeeService);
+    req = req.clone({
+      setHeaders: {
+        Authorization: `Bearer ${employeeService.getToken()}`
+      }
+    });
+    console.log(req);
+
+    return next.handle(req);
+  }
+
+}
+
+**********************************************************************************************************************************************
+
+EmployeeService.ts
+
+getToken() {
+    localStorage.setItem('token', 'sdfsdfsdfsdfsdfsdfjsdfjsd1212121212121');
+    return localStorage.getItem('token');
+  }
+
+**********************************************************************************************************************************************
+
+LoginService.ts
+
+localStorage.getItem('token'); // make this call to get the token while login
+
+localStorage.removeItem('token');
+    localStorage.clear(); // make this call to delete the token after logout
