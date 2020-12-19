@@ -1,0 +1,102 @@
+<div class="parent-container">
+    <div class="bg-pic" style="width: 70%;">
+        <div class="background-image"></div>
+    <div _ngcontent-pff-c2 class="img-holder" class="bg-caption pull-bottom sm-pull-bottom text-white p-1-20 m-b-20">
+        <h2 _ngcontent-pff-c2 class="semi-bold text-white"> 
+            Copaii enables communities to live better
+        </h2>
+        <p _ngcontent-pff-c2 class="small">Copyring @ Copaii 2020. All Rights
+            Reserved</p>
+    </div>
+    </div>
+    <div class="container" style="width: 30%;">
+        <div class="background-woman"></div><br>
+        <form [formGroup]="login" (ngSubmit)="loginApp()">
+            <div class="form-group">
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="user name" formControlName="username">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+                    formControlName="password">
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Keep Me Signed in</label>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="login.invalid">Login</button>
+        </form>
+    </div>
+</div>
+
+
+*************************************************************************************************************************************************************
+
+input.ng-touched.ng-invalid {
+    border: 1px solid red;
+}
+
+input[text] {
+    width: 300px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+input[password] {
+    width: 300px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+
+.login-wrapper .bg-caption {
+    width: 500px;
+}
+
+.m-b-20 {
+    margin-bottom: 20px;
+}
+
+.p-l-20 {
+    padding-left: 20px!important;
+}
+
+.pull-bottom {
+    position: absolute!important;
+    bottom: 0;
+}
+
+.text-white {
+    color: #fff!important;
+}
+.text-white {
+    color: #fff!important;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+div {
+    display: block;
+}
+
+body, p {
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.parent-container {
+    display: flex;
+    height: 100%;
+}
+
+.background-image{
+    background-image: url('C:\Users\dell\Desktop\Freelancing\Copaii\src\assets\img\new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg');
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.background-woman {
+    background-image: url('C:\Users\dell\Desktop\Freelancing\Copaii\src\assets\img\woman.jpg');
+    height: 150px;
+}
